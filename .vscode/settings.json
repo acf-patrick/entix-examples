@@ -1,0 +1,5 @@
+{
+  "cmake.debugConfig": {
+    "args": ["${workspaceFolder}/tests/${command:cmake.launchTargetFilename}/assets/app.cfg"]
+  }
+}

@@ -1,0 +1,3 @@
+[submodule "external/entix"]
+	path = external/entix
+	url = https://github.com/acf-patrick/entix
