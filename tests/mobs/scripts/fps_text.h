@@ -13,8 +13,9 @@ class FpsText : public entix::ecs::component::Script {
     FpsText() {
         destination.x = destination.y = 10;
 
-        std::string fontPath("assets/fonts/Ubuntu-Regular.ttf");
-        font = TTF_OpenFont(fontPath.c_str(), 24);
+        auto fontPath(entix::core::Application::Get().getConfigPath() /
+                      "fonts/emulogic.ttf");
+        font = TTF_OpenFont(fontPath.string().c_str(), 16);
 
         if (!font) {
             entix::Logger::error("FpsText") << "Unable to load " << fontPath;
@@ -29,21 +30,22 @@ class FpsText : public entix::ecs::component::Script {
 
     void Render() override {
         entix::core::RenderManager::Get()->submit([&](SDL_Renderer* renderer) {
-            auto fps = entix::core::Application::Get().getFramecount();
-            auto fpsText = std::to_string(fps);
-            fpsText += " FPS";
+            auto fps = entix::core::Application::Get().getFramerate();
+            auto fpsText = "FPS : " + std::to_string(fps);
 
-            auto surface =
-                TTF_RenderText_Solid(font, fpsText.c_str(), {255, 255, 255});
-            if (texture) {
-                SDL_DestroyTexture(texture);
+            if (auto surface = TTF_RenderText_Solid(font, fpsText.c_str(),
+                                                    {255, 255, 255});
+                surface) {
+                if (texture) {
+                    SDL_DestroyTexture(texture);
+                }
+
+                texture = SDL_CreateTextureFromSurface(renderer, surface);
+                SDL_FreeSurface(surface);
+
+                destination.w = surface->w;
+                destination.h = surface->h;
             }
-
-            texture = SDL_CreateTextureFromSurface(renderer, surface);
-            SDL_FreeSurface(surface);
-
-            destination.w = surface->w;
-            destination.h = surface->h;
 
             if (texture) {
                 SDL_RenderCopy(renderer, texture, NULL, &destination);
