@@ -1,6 +1,6 @@
 #pragma once
 
-#include "scripts.h"
+#include "scripts/scripts.h"
 #include "serializer/serializer.h"
 
 class CustomSerializer : public entix::core::Serializer {

@@ -1,5 +1,12 @@
 {
   "cmake.debugConfig": {
     "args": ["${workspaceFolder}/tests/${command:cmake.launchTargetFilename}/assets/app.cfg"]
+  },
+  "files.associations": {
+    "*.in": "cpp",
+    "*.scn": "yaml",
+    "*.entt": "yaml",
+    "*.cfg": "yaml",
+    "format": "cpp"
   }
 }

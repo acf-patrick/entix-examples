@@ -9,4 +9,5 @@ target_include_directories(mobs PRIVATE
 target_link_libraries(mobs PRIVATE 
     entix
     box2d
+    yaml-cpp
 )
