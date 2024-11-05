@@ -1,6 +1,6 @@
 Name: main
 Systems:
-  - WorldSystem
+  - PhysicSystem
 Entities:
   - TagComponent:
       Tag: main camera
