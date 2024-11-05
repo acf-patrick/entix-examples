@@ -1,6 +1,8 @@
 Mob:
 TransformComponent:
 SpriteRendererComponent:
+SpriteAnimatorComponent:
+  FrameDuration: 30
 SpriteComponent:
   Texture: spritesheet.png
   Centered: true

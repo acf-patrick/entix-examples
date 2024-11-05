@@ -20,11 +20,5 @@ class CustomSerializer : public entix::core::Serializer {
 
         c = node["FpsText"];
         if (c) entity.attach<FpsText>();
-
-        c = node["SpriteAnimator"];
-        if (c) {
-            auto frameDuration = c["FrameDuration"].as<Uint32>();
-            entity.attach<SpriteAnimator>(frameDuration);
-        }
     }
 };

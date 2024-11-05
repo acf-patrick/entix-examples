@@ -4,4 +4,3 @@
 #include "fps_text.h"
 #include "ground.h"
 #include "mob.h"
-#include "sprite_animator.h"
