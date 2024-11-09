@@ -1,6 +1,6 @@
 Name: main
 Systems:
-  - WorldSystem
+  - PhysicSystem
 Entities:
   - TagComponent:
       Tag: main camera
@@ -11,9 +11,7 @@ Entities:
     CameraComponent:
       Size: [1, 1]
       Destination: [0, 0]
-      BackgroundColor: [120, 20, 100, 255]
-      # BackgroundImage: ""
-      ClearMode: solid color
+      BackgroundColor: [22, 22, 30, 255]
       Flip: [false, false]
       Depth: 0
       Layers: [0]
@@ -28,3 +26,4 @@ Entities:
     SpriteRendererComponent:
     FollowMouseBehavior:
   - Ground:
+  - FpsText:

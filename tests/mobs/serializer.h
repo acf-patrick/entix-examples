@@ -1,6 +1,6 @@
 #pragma once
 
-#include "scripts.h"
+#include "scripts/scripts.h"
 #include "serializer/serializer.h"
 
 class CustomSerializer : public entix::core::Serializer {
@@ -20,11 +20,5 @@ class CustomSerializer : public entix::core::Serializer {
 
         c = node["FpsText"];
         if (c) entity.attach<FpsText>();
-
-        c = node["SpriteAnimator"];
-        if (c) {
-            auto frameDuration = c["FrameDuration"].as<Uint32>();
-            entity.attach<SpriteAnimator>(frameDuration);
-        }
     }
 };
