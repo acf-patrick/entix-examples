@@ -1,6 +1,13 @@
 {
   "cmake.debugConfig": {
-    "args": ["${workspaceFolder}/tests/${command:cmake.launchTargetFilename}/assets/app.cfg"]
+    "args": [
+      "${workspaceFolder}/tests/${command:cmake.launchTargetFilename}/assets/app.cfg"
+    ]
+  },
+  "yaml.schemas": {
+    "./external/schemas/entity.schema.json": "*.entt",
+    "./external/schemas/scene.schema.json": "*.scn",
+    "./external/schemas/app.schema.json": "*.cfg"
   },
   "files.associations": {
     "*.in": "cpp",
