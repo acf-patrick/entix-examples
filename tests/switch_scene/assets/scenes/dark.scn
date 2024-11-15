@@ -1,0 +1,8 @@
+Name: Dark scene
+Entities:
+  - TagComponent:
+      Tag: main camera
+    CameraComponent:
+  - Template: prefabs/button.entt
+    ButtonBehavior:
+      DarkMode: true
