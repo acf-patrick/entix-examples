@@ -1,0 +1,8 @@
+SpriteComponent:
+  Texture: images/icons.png
+  Frame: 0
+  FramesNumber: [2, 1]
+  Centered: true
+TransformComponent:
+  Position: [240, 180]
+SpriteRendererComponent:
