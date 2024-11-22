@@ -1,6 +1,8 @@
 Name: Light scene
 Entities:
-  - CameraComponent:
+  - TagComponent:
+      Tag: main camera
+    CameraComponent:
       BackgroundColor: [50, 115, 220, 255]
   - Template: prefabs/button.entt
     ButtonBehavior:

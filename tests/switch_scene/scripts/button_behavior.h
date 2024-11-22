@@ -24,7 +24,7 @@ class ButtonBehavior : public entix::ecs::Script {
                     SDL_Point mouse = {.x = mouseEvent.x, .y = mouseEvent.y};
 
                     if (SDL_PointInRect(&mouse, &bb)) {
-                        entix::core::SceneManager::Get()->activateOrLoad(
+                        entix::core::SceneManager::Get()->activate(
                             _isDarkMode ? "light" : "dark");
                     }
                 }
