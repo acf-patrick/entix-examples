@@ -1,0 +1,10 @@
+Square:
+  Side: 32
+  Color: [255, 255, 255, 255]
+Tasks:
+  Sequential:
+    - Sequential:
+        - Sequential:
+            - qsdf
+        - Asynchronous:
+            - sdf
