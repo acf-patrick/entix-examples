@@ -2,8 +2,6 @@
 
 #include <core.h>
 
-#include "../components/square.h"
-
 class ColorChangeAnimation : public entix::task::ITask {
     entix::ecs::Entity& _entity;
 
@@ -22,15 +20,16 @@ class ColorChangeAnimation : public entix::task::ITask {
     bool done() const override { return _timer.isDone(); }
 
     void run(uint32_t) override {
-        auto& square = _entity.get<Square>();
+        if (!_entity.has<SDL_Color>()) return;
+
+        auto& color = _entity.get<SDL_Color>();
 
         if (_firstRun) {
             _firstRun = false;
             _timer.resume();
         }
 
-        auto color =
+        color =
             entix::util::lerp(_startColor, _finalColor, _timer.getProgress());
-        square.setColor(color);
     }
 };

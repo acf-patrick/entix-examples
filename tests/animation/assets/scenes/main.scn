@@ -4,11 +4,13 @@ Entities:
       Tag: main camera
     CameraComponent:
       BackgroundColor: [0, 0, 0, 255]
-      # Destination: [0.4, 0.4]
+  - Circle:
+      Radius: 50
+    TransformComponent:
+    Color: [255, 0, 0, 255]
   - Square:
       Side: 100
-      Color: [0, 0, 0, 255]
-      Index: 1
+    Color: [0, 0, 0, 255]
     TransformComponent:
     Tasks:
       Asynchronous:
@@ -17,27 +19,15 @@ Entities:
             From: [255, 0, 0, 255]
             To: [0, 0, 255, 255]
         - Sequential:
-          - TranslationAnimation:
-              Duration: 1000
-              To: [100, 100]
-          - TranslationAnimation:
-              Duration: 1000
-              To: [200, 100]
-          - TranslationAnimation:
-              Duration: 1000
-              To: [200, 200]
-          - TranslationAnimation:
-              Duration: 1000
-              To: [100, 200]
-  # - Square:
-  #     Side: 32
-  #     Color: [255, 255, 255, 255]
-  #     Index: 0
-  #   TransformComponent:
-  #     Position: [38, 0]
-  # - Square:
-  #     Side: 32
-  #     Color: [255, 255, 255, 255]
-  #     Index: 2
-  #   TransformComponent:
-  #     Position: [0, 38]
+            - TranslationAnimation:
+                Duration: 1000
+                To: [100, 100]
+            - TranslationAnimation:
+                Duration: 1000
+                To: [200, 100]
+            - TranslationAnimation:
+                Duration: 1000
+                To: [200, 200]
+            - TranslationAnimation:
+                Duration: 1000
+                To: [100, 200]

@@ -3,11 +3,11 @@
 #include <SDL2_gfxPrimitives.h>
 #include <core.h>
 
-class Square : public entix::ecs::Script {
-    int _side = 16;
+class Circle : public entix::ecs::Script {
+    int _radius;
 
    public:
-    Square(int side) : _side(side) {}
+    Circle(int radius) : _radius(radius) {}
 
     void Render() override {
         if (!has<entix::ecs::component::Transform>()) return;
@@ -21,13 +21,9 @@ class Square : public entix::ecs::Script {
 
         entix::core::RenderManager::Get()->submit(
             [position, color, this](SDL_Renderer* renderer) {
-                SDL_Rect rect = {.x = (int)position.x,
-                                 .y = (int)position.y,
-                                 .w = _side,
-                                 .h = _side};
-                SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b,
-                                       color.a);
-                SDL_RenderFillRect(renderer, &rect);
+                filledCircleRGBA(renderer, int(position.x + _radius),
+                                 int(position.y + _radius), _radius, color.r,
+                                 color.g, color.b, color.a);
             });
     }
 };

@@ -18,7 +18,8 @@ class TranslationAnimation : public entix::task::ITask {
     bool done() const override { return _timer.isDone(); }
 
     void run(uint32_t) override {
-        auto& square = _entity.get<Square>();
+        if (!_entity.has<SDL_Color>()) return;
+
         auto& position =
             _entity.get<entix::ecs::component::Transform>().position;
 
@@ -28,8 +29,7 @@ class TranslationAnimation : public entix::task::ITask {
             _firstRun = false;
         }
 
-        auto newPosition = entix::util::lerp(_initialPosition, _destination,
-                                             _timer.getProgress());
-        position = newPosition;
+        position = entix::util::lerp(_initialPosition, _destination,
+                                     _timer.getProgress());
     }
 };
