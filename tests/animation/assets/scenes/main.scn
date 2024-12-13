@@ -1,0 +1,33 @@
+Name: main
+Entities:
+  - TagComponent:
+      Tag: main camera
+    CameraComponent:
+      BackgroundColor: [0, 0, 0, 255]
+  - Circle:
+      Radius: 50
+    TransformComponent:
+    Color: [255, 0, 0, 255]
+  - Square:
+      Side: 100
+    Color: [0, 0, 0, 255]
+    TransformComponent:
+    Tasks:
+      Asynchronous:
+        - ColorChangeAnimation:
+            Duration: 4000
+            From: [255, 0, 0, 255]
+            To: [0, 0, 255, 255]
+        - Sequential:
+            - TranslationAnimation:
+                Duration: 1000
+                To: [100, 100]
+            - TranslationAnimation:
+                Duration: 1000
+                To: [200, 100]
+            - TranslationAnimation:
+                Duration: 1000
+                To: [200, 200]
+            - TranslationAnimation:
+                Duration: 1000
+                To: [100, 200]
